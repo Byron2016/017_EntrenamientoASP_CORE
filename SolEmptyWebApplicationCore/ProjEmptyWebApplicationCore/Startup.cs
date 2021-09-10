@@ -23,24 +23,19 @@ namespace ProjEmptyWebApplicationCore
         {
             if (env.IsDevelopment())
             {
-                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions
-                {
-                    SourceCodeLineCount = 1
-                };
-                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
+                app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();  //app.UseFileServer();
+            app.UseStaticFiles();  
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                throw new Exception("manual Error ");
                 endpoints.MapGet("/", async context =>
                 {
-                    
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Hosting Enviroment: " + env.EnvironmentName);
+                    // await context.Response.WriteAsync("Hello World!");
                 });
             });
         }
