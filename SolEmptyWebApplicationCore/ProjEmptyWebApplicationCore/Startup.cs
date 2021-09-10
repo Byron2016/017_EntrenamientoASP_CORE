@@ -24,6 +24,9 @@ namespace ProjEmptyWebApplicationCore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            } else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
+            {
+                app.UseExceptionHandler("/Error");
             }
 
             app.UseStaticFiles();  
@@ -32,6 +35,7 @@ namespace ProjEmptyWebApplicationCore
 
             app.UseEndpoints(endpoints =>
             {
+                throw new Exception("mi error");
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hosting Enviroment: " + env.EnvironmentName);
