@@ -26,6 +26,7 @@ namespace ProjEmptyWebApplicationCore
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
