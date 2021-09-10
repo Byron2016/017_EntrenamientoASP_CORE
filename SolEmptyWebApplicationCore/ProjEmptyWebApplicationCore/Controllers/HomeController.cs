@@ -9,7 +9,7 @@ namespace ProjEmptyWebApplicationCore.Controllers
 {
     public class HomeController : Controller
     {
-        private IEmployeeRepository _employeeRepository;
+        private readonly IEmployeeRepository _employeeRepository;
 
         public HomeController(IEmployeeRepository employeeRepository)
         {
@@ -21,6 +21,18 @@ namespace ProjEmptyWebApplicationCore.Controllers
             //return "Hello from MVC";
             return _employeeRepository.GetEmployee(1).Name;
             //return Json(new { id= 1, name = "Trump" });
+        }
+        /*
+        public JsonResult Details()
+        {
+            Employee model = _employeeRepository.GetEmployee(1);
+            return Json(model);
+        }
+        */
+        public ObjectResult Details()
+        {
+            Employee model = _employeeRepository.GetEmployee(1);
+            return new ObjectResult(model);
         }
     }
 }

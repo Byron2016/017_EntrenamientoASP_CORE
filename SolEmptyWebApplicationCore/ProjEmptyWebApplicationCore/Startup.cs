@@ -19,7 +19,7 @@ namespace ProjEmptyWebApplicationCore
         {
             services.AddRazorPages();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddXmlSerializerFormatters();
 
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
         }
