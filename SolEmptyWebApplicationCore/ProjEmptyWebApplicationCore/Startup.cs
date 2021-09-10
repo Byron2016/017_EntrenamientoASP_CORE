@@ -23,20 +23,23 @@ namespace ProjEmptyWebApplicationCore
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions
+                {
+                    SourceCodeLineCount = 1
+                };
+                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
             }
 
-            FileServerOptions fileServerOptions = new FileServerOptions();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("paraFileServer.html");
-            app.UseFileServer(fileServerOptions);
+            app.UseStaticFiles();  //app.UseFileServer();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                throw new Exception("manual Error ");
                 endpoints.MapGet("/", async context =>
                 {
+                    
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
