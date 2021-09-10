@@ -16,8 +16,8 @@ namespace ProjEmptyWebApplicationCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            
+            services.AddRazorPages();
+
             services.AddControllersWithViews();
         }
 
@@ -41,6 +41,7 @@ namespace ProjEmptyWebApplicationCore
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
 
                 //endpoints.MapGet("/", async context =>
                 //{
@@ -48,7 +49,7 @@ namespace ProjEmptyWebApplicationCore
                 //    await context.Response.WriteAsync("Hello World!");
                 //});
 
-                
+
             });
         }
     }
