@@ -40,7 +40,8 @@ namespace ProjEmptyWebApplicationCore.Controllers
         {
             Employee model = _employeeRepository.GetEmployee(1);
             //return View(model);
-            return View("Test", model);
+            //return View("Test", model);
+            return View("MyView/Test.cshtml");
         }
     }
 }
