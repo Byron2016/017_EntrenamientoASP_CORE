@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjEmptyWebApplicationCore.Models;
+using ProjEmptyWebApplicationCore.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +39,12 @@ namespace ProjEmptyWebApplicationCore.Controllers
         */
         public ViewResult Details()
         {
-            Employee model = _employeeRepository.GetEmployee(2);
-
-            ViewBag.PageTitle = "Employee Details";
-            return View(model);
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Employee = _employeeRepository.GetEmployee(2),
+                PageTitle = "Employee Details"
+            };
+            return View(homeDetailsViewModel);
         }
     }
 }
