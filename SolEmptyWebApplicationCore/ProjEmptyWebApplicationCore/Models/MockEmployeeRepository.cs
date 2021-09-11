@@ -17,6 +17,12 @@ namespace ProjEmptyWebApplicationCore.Models
                 new Employee(){Id = 3, Name="N3", Department="IT", Email="sam@yahoo.com"}
             };
         }
+
+        public IEnumerable<Employee> GetAllEmployees()
+        {
+            return _employeeList;
+        }
+
         public Employee GetEmployee(int Id)
         {
             // throw new NotImplementedException();

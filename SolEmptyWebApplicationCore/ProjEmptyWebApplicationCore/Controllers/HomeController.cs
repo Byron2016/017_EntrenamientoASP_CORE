@@ -17,11 +17,10 @@ namespace ProjEmptyWebApplicationCore.Controllers
             _employeeRepository = employeeRepository;
 
         }
-        public string Index()
+        public ViewResult Index()
         {
-            //return "Hello from MVC";
-            return _employeeRepository.GetEmployee(1).Name;
-            //return Json(new { id= 1, name = "Trump" });
+            var model = _employeeRepository.GetAllEmployees();
+            return View(model);
         }
         /*
         public JsonResult Details()
