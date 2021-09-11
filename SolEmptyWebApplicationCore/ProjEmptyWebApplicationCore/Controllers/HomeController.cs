@@ -39,9 +39,10 @@ namespace ProjEmptyWebApplicationCore.Controllers
         public ViewResult Details()
         {
             Employee model = _employeeRepository.GetEmployee(1);
-            //return View(model);
-            //return View("Test", model);
-            return View("MyView/Test.cshtml");
+
+            ViewData["Employee"] = model;
+            ViewData["PageTitle"] = "Employee Details";
+            return View();
         }
     }
 }
