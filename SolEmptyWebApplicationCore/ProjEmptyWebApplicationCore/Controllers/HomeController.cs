@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjEmptyWebApplicationCore.Controllers
 {
-    [Route("Home")]
+    [Route("[controller]")]
     public class HomeController : Controller
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -20,7 +20,7 @@ namespace ProjEmptyWebApplicationCore.Controllers
         }
 
         [Route("")]
-        [Route("Index")]
+        [Route("[action]")]
         [Route("~/")]
         public ViewResult Index()
         {
@@ -42,7 +42,7 @@ namespace ProjEmptyWebApplicationCore.Controllers
         }
         */
 
-        [Route("Home/Details/{id?}")]
+        [Route("Details/{id?}")]
         public ViewResult Details(int? Id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
