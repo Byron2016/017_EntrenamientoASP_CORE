@@ -43,7 +43,7 @@ namespace ProjEmptyWebApplicationCore
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "prefijo/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
 
                 //endpoints.MapGet("/", async context =>
