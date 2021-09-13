@@ -17,6 +17,10 @@ namespace ProjEmptyWebApplicationCore.Controllers
             _employeeRepository = employeeRepository;
 
         }
+
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
         public ViewResult Index()
         {
             var model = _employeeRepository.GetAllEmployees();
@@ -36,11 +40,13 @@ namespace ProjEmptyWebApplicationCore.Controllers
             return new ObjectResult(model);
         }
         */
-        public ViewResult Details(int Id)
+
+        [Route("Home/Details/{id?}")]
+        public ViewResult Details(int? Id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(Id),
+                Employee = _employeeRepository.GetEmployee(Id??1),
                 PageTitle = "Employee Details"
             };
             return View(homeDetailsViewModel);
