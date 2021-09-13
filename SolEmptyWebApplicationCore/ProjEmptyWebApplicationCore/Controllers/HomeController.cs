@@ -36,11 +36,11 @@ namespace ProjEmptyWebApplicationCore.Controllers
             return new ObjectResult(model);
         }
         */
-        public ViewResult Details()
+        public ViewResult Details(int Id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(2),
+                Employee = _employeeRepository.GetEmployee(Id),
                 PageTitle = "Employee Details"
             };
             return View(homeDetailsViewModel);
