@@ -31,7 +31,7 @@ namespace ProjEmptyWebApplicationCore
 
             services.AddControllersWithViews().AddXmlSerializerFormatters();
 
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
             //services.AddScoped<IEmployeeRepository, MockEmployeeRepository>();
 
