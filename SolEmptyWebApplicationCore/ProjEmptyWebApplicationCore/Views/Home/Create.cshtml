@@ -16,7 +16,7 @@
     <div class="input-group mb-3">
         <label asp-for="Email" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input asp-for="Email" class="form-control"  placeholder="Email" />
+            <input asp-for="Email" class="form-control" placeholder="Email" />
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
     </div>
@@ -31,10 +31,10 @@
     </div>
 
     <div class="input-group mb-3">
-        <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+        <label asp-for="Photos" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <div class="">
-                <input asp-for="Photo" type="file" class="form-control" />
+                <input asp-for="Photos" type="file" class="form-control custom-file-input" multiple />
                 @*<label class="custom-file-label">Choose file...</label>*@
             </div>
         </div>
@@ -46,3 +46,20 @@
         </div>
     </div>
 </form>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            //$('.custom-file-input').on("change", function () {
+            //    console.log($(this)):
+            //    var fileLabel = $(this).next('.custom-file-label');
+            //    var files = $(this)[0].files;
+            //    if (files.length > 1) {
+            //        fileLabel.html(files.length + ' files selected');
+            //    }
+            //    else if (files.length == 1) {
+            //        fileLabel.html(files[0].name);
+            //    }
+            //});
+        });
+    </script>
+}
