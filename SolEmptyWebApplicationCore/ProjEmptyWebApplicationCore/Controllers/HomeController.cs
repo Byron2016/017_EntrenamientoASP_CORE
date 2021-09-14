@@ -55,10 +55,15 @@ namespace ProjEmptyWebApplicationCore.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Create(Employee employee)
+        public IActionResult Create(Employee employee)
         {
+            if (ModelState.IsValid) 
+            { 
             Employee newEmployee = _employeeRepository.Add(employee);
             return RedirectToAction("details", new { id = newEmployee.Id });
+            }
+
+            return View();
         }
     }
 }
