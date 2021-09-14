@@ -12,9 +12,9 @@ namespace ProjEmptyWebApplicationCore.Models
         {
             _employeeList = new List<Employee>() 
             { 
-                new Employee(){Id = 1, Name="N1", Department="HR", Email="mary@yahoo.com"},
-                new Employee(){Id = 2, Name="N2", Department="IT", Email="jphn@yahoo.com"},
-                new Employee(){Id = 3, Name="N3", Department="IT", Email="sam@yahoo.com"}
+                new Employee(){Id = 1, Name="N1", Department=Dept.HR, Email="mary@yahoo.com"},
+                new Employee(){Id = 2, Name="N2", Department=Dept.IT, Email="jphn@yahoo.com"},
+                new Employee(){Id = 3, Name="N3", Department=Dept.IT, Email="sam@yahoo.com"}
             };
         }
 
