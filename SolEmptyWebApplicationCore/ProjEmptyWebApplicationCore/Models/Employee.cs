@@ -18,7 +18,8 @@ namespace ProjEmptyWebApplicationCore.Models
         [Display(Name = "Office Email")]
         public string Email { get; set; }
         [Display(Name = "Pertenece a")]
-        public Dept Department { get; set; }
+        [Required]
+        public Dept? Department { get; set; }
 
 
     }
