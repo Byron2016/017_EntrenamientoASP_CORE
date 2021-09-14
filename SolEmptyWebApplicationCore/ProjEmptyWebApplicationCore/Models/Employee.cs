@@ -20,7 +20,7 @@ namespace ProjEmptyWebApplicationCore.Models
         [Display(Name = "Pertenece a")]
         [Required]
         public Dept? Department { get; set; }
-
+        public string PhotoPath { get; set; }
 
     }
 }
