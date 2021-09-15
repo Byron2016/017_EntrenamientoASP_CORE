@@ -49,7 +49,8 @@ namespace ProjEmptyWebApplicationCore
                 app.UseExceptionHandler("/Error");
             }
 
-            app.UseStatusCodePages();
+            //app.UseStatusCodePages();
+            app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
             app.UseStaticFiles();  
 
