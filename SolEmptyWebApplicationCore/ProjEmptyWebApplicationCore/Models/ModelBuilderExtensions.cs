@@ -115,5 +115,68 @@ namespace ProjEmptyWebApplicationCore.Models
                 }
                 );
         }
+
+        public static void SeedAuthor(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Author>().HasData(
+                new Author
+                {
+                    Id = 1,
+                    FullName = "Author 1"
+                },
+                new Author
+                {
+                    Id = 2,
+                    FullName = "Author 2"
+                },
+                new Author
+                {
+                    Id = 3,
+                    FullName = "Author 3"
+                }
+                );
+        }
+
+        public static void SeedBook_Author(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book_Author>().HasData(
+                new Book_Author
+                {
+                    Id = 1,
+                    BookId = 1,
+                    AuthorId = 1
+                },
+                new Book_Author
+                {
+                    Id = 2,
+                    BookId = 2,
+                    AuthorId = 2
+                },
+                new Book_Author
+                {
+                    Id = 3,
+                    BookId = 2,
+                    AuthorId = 3
+                },
+                new Book_Author
+                {
+                    Id = 4,
+                    BookId = 3,
+                    AuthorId = 1
+                },
+                new Book_Author
+                {
+                    Id = 5,
+                    BookId = 3,
+                    AuthorId = 2
+                },
+                new Book_Author
+                {
+                    Id = 6,
+                    BookId = 3,
+                    AuthorId = 3
+                }
+                );
+        }
     }
 }

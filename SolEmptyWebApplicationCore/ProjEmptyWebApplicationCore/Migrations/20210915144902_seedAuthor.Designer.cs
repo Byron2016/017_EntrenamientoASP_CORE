@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjEmptyWebApplicationCore.Models;
 
 namespace ProjEmptyWebApplicationCore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210915144902_seedAuthor")]
+    partial class seedAuthor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,7 +106,7 @@ namespace ProjEmptyWebApplicationCore.Migrations
                             Id = 1,
                             Author = "Author 1",
                             CoverUrl = "Url 1",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 44, 292, DateTimeKind.Utc).AddTicks(875),
+                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 1, 354, DateTimeKind.Utc).AddTicks(565),
                             Description = "Desc 1",
                             Genre = "Fiction",
                             IsRead = false,
@@ -117,7 +119,7 @@ namespace ProjEmptyWebApplicationCore.Migrations
                             Id = 2,
                             Author = "Author 2",
                             CoverUrl = "Url 2",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 44, 292, DateTimeKind.Utc).AddTicks(2523),
+                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 1, 354, DateTimeKind.Utc).AddTicks(1650),
                             Description = "Desc 2",
                             Genre = "Fiction",
                             IsRead = false,
@@ -130,7 +132,7 @@ namespace ProjEmptyWebApplicationCore.Migrations
                             Id = 3,
                             Author = "Author 3",
                             CoverUrl = "Url 3",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 44, 292, DateTimeKind.Utc).AddTicks(2533),
+                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 1, 354, DateTimeKind.Utc).AddTicks(1658),
                             Description = "Desc 3",
                             Genre = "Fiction",
                             IsRead = false,
@@ -143,7 +145,7 @@ namespace ProjEmptyWebApplicationCore.Migrations
                             Id = 4,
                             Author = "Author 4",
                             CoverUrl = "Url 4",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 44, 292, DateTimeKind.Utc).AddTicks(2537),
+                            DateAdded = new DateTime(2021, 9, 15, 14, 49, 1, 354, DateTimeKind.Utc).AddTicks(1662),
                             Description = "Desc 4",
                             Genre = "Fiction",
                             IsRead = false,
@@ -173,44 +175,6 @@ namespace ProjEmptyWebApplicationCore.Migrations
                     b.HasIndex("BookId");
 
                     b.ToTable("Book_Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AuthorId = 1,
-                            BookId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AuthorId = 2,
-                            BookId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AuthorId = 3,
-                            BookId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AuthorId = 1,
-                            BookId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AuthorId = 2,
-                            BookId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AuthorId = 3,
-                            BookId = 3
-                        });
                 });
 
             modelBuilder.Entity("ProjEmptyWebApplicationCore.Models.Employee", b =>
