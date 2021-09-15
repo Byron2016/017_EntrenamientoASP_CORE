@@ -31,13 +31,13 @@ namespace ProjEmptyWebApplicationCore.Controllers
 
         public ViewResult Details(int? id)
         {
-            Employee employee = _employeeRepository.GetEmployee(id.Value);
+             Employee employee = _employeeRepository.GetEmployee(id.Value);
 
-            if(employee == null)
-            {
-                Response.StatusCode = 404;
-                return View("EmployeeNotFound", id.Value);
-            }
+             if(employee == null)
+             {
+                 Response.StatusCode = 404;
+                 return View("EmployeeNotFound", id.Value);
+             }
 
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
