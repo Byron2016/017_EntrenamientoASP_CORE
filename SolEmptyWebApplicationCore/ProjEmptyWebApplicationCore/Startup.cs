@@ -47,11 +47,12 @@ namespace ProjEmptyWebApplicationCore
             } else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
             {
                 app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             //app.UseStatusCodePages();
             //app.UseStatusCodePagesWithRedirects("/Error/{0}");
-            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            //app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
             app.UseStaticFiles();  
 

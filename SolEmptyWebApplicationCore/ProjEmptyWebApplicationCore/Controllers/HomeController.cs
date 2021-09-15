@@ -31,6 +31,8 @@ namespace ProjEmptyWebApplicationCore.Controllers
 
         public ViewResult Details(int? id)
         {
+            throw new Exception("Error en Details View");
+
              Employee employee = _employeeRepository.GetEmployee(id.Value);
 
              if(employee == null)
