@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjEmptyWebApplicationCore.Models;
 
 namespace ProjEmptyWebApplicationCore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210915135427_EF_OneToMany_CreaTablas")]
+    partial class EF_OneToMany_CreaTablas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,9 +49,6 @@ namespace ProjEmptyWebApplicationCore.Migrations
                     b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PublisherId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Rate")
                         .HasColumnType("int");
 
@@ -60,63 +59,7 @@ namespace ProjEmptyWebApplicationCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PublisherId");
-
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Author 1",
-                            CoverUrl = "Url 1",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(8566),
-                            Description = "Desc 1",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 1,
-                            Rate = 1,
-                            Title = "Title 1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Author = "Author 2",
-                            CoverUrl = "Url 2",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9660),
-                            Description = "Desc 2",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 2,
-                            Rate = 1,
-                            Title = "Title 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Author = "Author 3",
-                            CoverUrl = "Url 3",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9677),
-                            Description = "Desc 3",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 1,
-                            Rate = 1,
-                            Title = "Title 3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Author = "Author 4",
-                            CoverUrl = "Url 4",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9680),
-                            Description = "Desc 4",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 4,
-                            Rate = 1,
-                            Title = "Title 4"
-                        });
                 });
 
             modelBuilder.Entity("ProjEmptyWebApplicationCore.Models.Employee", b =>
@@ -177,44 +120,6 @@ namespace ProjEmptyWebApplicationCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Publishers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Nombre = "Publi 1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Nombre = "Publi 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nombre = "Publi 3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nombre = "Publi 4"
-                        });
-                });
-
-            modelBuilder.Entity("ProjEmptyWebApplicationCore.Models.Book", b =>
-                {
-                    b.HasOne("ProjEmptyWebApplicationCore.Models.Publisher", "Publisher")
-                        .WithMany("Books")
-                        .HasForeignKey("PublisherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Publisher");
-                });
-
-            modelBuilder.Entity("ProjEmptyWebApplicationCore.Models.Publisher", b =>
-                {
-                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

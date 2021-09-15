@@ -14,10 +14,15 @@ namespace ProjEmptyWebApplicationCore.Models
         }
 
         public DbSet<Employee> Employees { get; set; }
+        //Ejer EF 
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Seed();
+            modelBuilder.SeedPubliser();
+            modelBuilder.SeedBook();
         }
     }
 }

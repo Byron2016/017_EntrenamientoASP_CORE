@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjEmptyWebApplicationCore.Models;
 
 namespace ProjEmptyWebApplicationCore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210915141810_seedPublisher")]
+    partial class seedPublisher
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,60 +65,6 @@ namespace ProjEmptyWebApplicationCore.Migrations
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Author 1",
-                            CoverUrl = "Url 1",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(8566),
-                            Description = "Desc 1",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 1,
-                            Rate = 1,
-                            Title = "Title 1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Author = "Author 2",
-                            CoverUrl = "Url 2",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9660),
-                            Description = "Desc 2",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 2,
-                            Rate = 1,
-                            Title = "Title 2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Author = "Author 3",
-                            CoverUrl = "Url 3",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9677),
-                            Description = "Desc 3",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 1,
-                            Rate = 1,
-                            Title = "Title 3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Author = "Author 4",
-                            CoverUrl = "Url 4",
-                            DateAdded = new DateTime(2021, 9, 15, 14, 18, 37, 422, DateTimeKind.Utc).AddTicks(9680),
-                            Description = "Desc 4",
-                            Genre = "Fiction",
-                            IsRead = false,
-                            PublisherId = 4,
-                            Rate = 1,
-                            Title = "Title 4"
-                        });
                 });
 
             modelBuilder.Entity("ProjEmptyWebApplicationCore.Models.Employee", b =>
